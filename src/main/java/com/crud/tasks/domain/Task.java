@@ -1,6 +1,7 @@
 package com.crud.tasks.domain;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
+
+import lombok.Getter;
 
 @Getter
 public class Task {
