@@ -1,33 +1,20 @@
 call runcrud.bat
-if "%ERRORLEVEL%" == "0" goto rename
+if "%ERRORLEVEL%" == "0" goto runexplorer
 echo.
 echo runcrud.bat has errors - breaking work
 goto fail
 
-:rename
-del build\libs\crud.war
-ren build\libs\tasks3-0.0.1-SNAPSHOT.war crud.war
-if "%ERRORLEVEL%" == "0" goto stoptomcat
-echo Cannot rename file
-goto fail
-
-:stoptomcat
-call %CATALINA_HOME%\bin\shutdown.bat
-
-:copyfile
-copy build\libs\crud.war %CATALINA_HOME%\webapps
-if "%ERRORLEVEL%" == "0" goto runtomcat
-echo Cannot copy file
-goto fail
-
-:runtomcat
-call %CATALINA_HOME%\bin\startup.bat
+:runexplorer
+echo RUNEXPLORER
+"C:\Program Files (x86)\Mozilla Firefox\firefox.exe" http://localhost:8080/v1/tasks/getTasks
 goto end
 
 :fail
+echo FAIL
 echo.
 echo There were errors
 
 :end
+echo FINISH
 echo.
 echo Work is finished.
