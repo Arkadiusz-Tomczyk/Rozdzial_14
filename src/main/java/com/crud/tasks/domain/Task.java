@@ -10,7 +10,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
-@Entity
+@Entity(name= "tasks")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,4 +19,5 @@ public class Task {
     private String title;
     @Column(name = "descriptionx")
     private String content;
+
 }
