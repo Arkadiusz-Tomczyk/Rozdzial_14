@@ -1,9 +1,7 @@
 package com.crud.tasks.config;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.Documentation;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
