@@ -13,6 +13,9 @@ import java.util.List;
 public class TrelloBoardDto {
     private String name;
     private String id;
+    private String deleteIt;
+    private int numer;
+
 
 //    @Value("${trello.api.endpoint.prod}")
 //    private String trelloApiEndpoint;
