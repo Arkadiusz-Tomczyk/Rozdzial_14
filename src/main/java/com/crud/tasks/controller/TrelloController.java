@@ -15,12 +15,12 @@ public class TrelloController {
     @Autowired
     private TrelloService trelloService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/getTrelloBoards")
-    public  List<TrelloBoardDto> getTrelloBoards() {
-        return trelloService.fetchTrelloBoards();
-    }
-    @RequestMapping(method = RequestMethod.POST, value = "/createTrelloBoards")
-    public CreateTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
-        return trelloService.createTrelloCard(trelloCardDto);
-    }
+//    @RequestMapping(method = RequestMethod.GET, value = "/getTrelloBoards")
+//    public  List<TrelloBoardDto> getTrelloBoards() {
+//        return trelloService.fetchTrelloBoards();
+//    }
+//    @RequestMapping(method = RequestMethod.POST, value = "/createTrelloBoards")
+//    public CreateTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto) {
+//        return trelloService.createTrelloCard(trelloCardDto);
+//    }
 }

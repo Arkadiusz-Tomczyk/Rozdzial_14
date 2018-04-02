@@ -26,16 +26,16 @@ public class TrelloService {
 
     private static final String SUBJECT = "tasks: New trello card";
 
-    public List<TrelloBoardDto> fetchTrelloBoards() {
-        return trelloClient.getTrelloBoards();
-    }
-    public CreatedTrelloCard createdTrelloCard(final TrelloCardDto trelloCardDto) {
-        CreatedTrelloCard newCard = trelloClient.createNewCard(trelloCardDto);
-       ofNullable(NewCard).ifPresent(card -> emailService.send(new Mail(adminConfig.getAdminMail(),
-                "",
-                SUBJECT,
-                "new card" + trelloCardDto.getName + "has been created on your trello account"
-        )));
-        return newCard;
-    }
+//    public List<TrelloBoardDto> fetchTrelloBoards() {
+//        return trelloClient.getTrelloBoards();
+//    }
+//    public CreatedTrelloCard createdTrelloCard(final TrelloCardDto trelloCardDto) {
+//        CreatedTrelloCard newCard = trelloClient.createNewCard(trelloCardDto);
+//       ofNullable(NewCard).ifPresent(card -> emailService.send(new Mail(adminConfig.getAdminMail(),
+//                "",
+//                SUBJECT,
+//                "new card" + trelloCardDto.getName + "has been created on your trello account"
+//        )));
+//        return newCard;
+//    }
 }

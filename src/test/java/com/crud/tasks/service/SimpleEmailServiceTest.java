@@ -21,14 +21,15 @@ public class SimpleEmailServiceTest {
     private JavaMailSender javaMailSender;
 
     @Test
-    public void shouldsendEmail() {
+    public void shouldSendEmail() {
     //Given
-        Mail mail = new Mail("est@test", "test" , "test msg");
+        Mail mail = new Mail("est@test", "test" , "test msg", "123");
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getMailTo());
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
+        mailMessage.setCc(mail.getToCc());
         //When
         simpleEmailService.send(mail);
         //Then
