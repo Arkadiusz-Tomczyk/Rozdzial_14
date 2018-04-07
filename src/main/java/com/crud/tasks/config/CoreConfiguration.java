@@ -21,6 +21,8 @@ public class CoreConfiguration {
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
+
+//      swagger
 //    @Bean
 //    public Docket api() {
 //        return new Docket(DocumentationType.SWAGGER_2)
