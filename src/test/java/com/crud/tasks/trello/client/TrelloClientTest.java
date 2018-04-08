@@ -1,6 +1,6 @@
 package com.crud.tasks.trello.client;
 
-import com.crud.tasks.domain.CreatedTrelloCard;
+import com.crud.tasks.mapper.CreatedTrelloCard;
 import com.crud.tasks.domain.TrelloBoardDto;
 import com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.domain.TrelloConfig;
@@ -18,7 +18,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
-import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)

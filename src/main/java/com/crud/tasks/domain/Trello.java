@@ -8,13 +8,11 @@ import lombok.Getter;
 @AllArgsConstructor
 @Getter
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class TrelloListDto {
-    @JsonProperty("id")
-    private String id;
+public class Trello {
 
-    @JsonProperty("name")
-    private String name;
+    @JsonProperty("board")
+    private int board;
 
-    @JsonProperty("closed")
-    private boolean isClosed;
+    @JsonProperty("card")
+    private int card;
 }
