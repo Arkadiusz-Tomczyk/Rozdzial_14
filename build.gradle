@@ -39,14 +39,17 @@ dependencies {
 	compile('org.projectlombok:lombok')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('com.google.code.gson:gson:2.8.2')
+	compile('org.springframework.boot:spring-boot-starter-mail')
+	compile('org.springframework.boot:spring-boot-starter-actuator')
 
-
-	testCompile('org.springframework.boot:spring-boot-starter-test')
-//dla tomcat
-//	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
-	//swagger
+//swagger
 	compile('io.springfox:springfox-swagger2:2.7.0')
 	compile('io.springfox:springfox-swagger-ui:2.7.0')
+
+			testCompile('org.springframework.boot:spring-boot-starter-test')
+//dla tomcat
+//	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+
 }
 //war {
 //	archiveName 'crud.war'
