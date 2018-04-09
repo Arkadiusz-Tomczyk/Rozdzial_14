@@ -38,6 +38,7 @@ dependencies {
 //	compile('org.postgresql:postgresql')
 	compile('org.projectlombok:lombok')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	compile('com.google.code.gson:gson:2.8.2')
 
 
 	testCompile('org.springframework.boot:spring-boot-starter-test')

@@ -8,7 +8,7 @@ import com.crud.tasks.service.DbService;
 import com.google.gson.Gson;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.ArgumentMatchers;
+import org.mockito.ArgumentMatcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -102,7 +102,7 @@ public class TaskControllerTestSuite {
         Task task = new Task(1L, "task", "content");
         TaskDto taskDto = new TaskDto(1L, "task", "content");
         when(taskMapper.mapToTask(taskDto)).thenReturn(task);
-        when(dbService.saveTask(ArgumentMatchers.any(Task.class))).thenReturn(task);
+        when(dbService.saveTask(ArgumentMatcher.any(Task.class))).thenReturn(task);
 
         Gson gson = new Gson();
         String jsonContent = gson.toJson(task);
