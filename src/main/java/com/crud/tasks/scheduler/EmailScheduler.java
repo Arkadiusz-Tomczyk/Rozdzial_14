@@ -1,5 +1,6 @@
 package com.crud.tasks.scheduler;
 
+
 import com.crud.tasks.config.AdminConfig;
 import com.crud.tasks.domain.Mail;
 import com.crud.tasks.repository.TaskRepository;
@@ -13,8 +14,6 @@ public class EmailScheduler {
 
     private static final String SUBJECT = "Tasks: Once a day email";
 
-    private String singleTask;
-
     @Autowired
     private SimpleEmailService simpleEmailService;
 
@@ -24,14 +23,12 @@ public class EmailScheduler {
     @Autowired
     private AdminConfig adminConfig;
 
-    @Scheduled(fixedDelay = 100000000000L)
+    @Scheduled(fixedDelayString = "10000")
     public void sendInformationEmail() {
         long size = taskRepository.count();
-        Mail mail = new Mail(
+        simpleEmailService.send(new Mail(
                 adminConfig.getAdminMail(),
                 SUBJECT,
-                "Currently in database you got: " + size + " tasks");
-        singleTask = size > 1 ? "tasks" : "task";
-        simpleEmailService.send(mail);
+                "Currently in database you got: " + size + " tasks"));
     }
 }

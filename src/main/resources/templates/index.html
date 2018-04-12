@@ -7,7 +7,12 @@
 <body>
 <h1>First impression of my page</h1>
 
-<!--/*@thymesVar id="variable" type="com.crud.controller.StaticWebPageController"*/-->
+<!--/*@thymesVar id="variable" type="com.crud.tasks.controller.StaticWebPageController"*/-->
 <span th:text="${variable}"><</span>
+<br>
+<!--/*@thymesVar id="one" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+<!--/*@thymesVar id="two" type="com.crud.tasks.controller.StaticWebPageController"*/-->
+<span th:text="${one}+${two}"><</span>
+
 </body>
 </html>
