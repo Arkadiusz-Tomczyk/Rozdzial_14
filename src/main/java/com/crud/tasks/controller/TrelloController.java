@@ -22,6 +22,11 @@ public class TrelloController {
     public List<TrelloBoardDto> getTrelloBoards() {
         return trelloService.fetchTrelloBoards();
 
+//        @RequestMapping(method = RequestMethod.GET, value = "/boards")
+//        public List<TrelloBoardDto> getTrelloBoards() {
+//            return trelloFacade.fetchTrelloBoards();
+
+
         /*List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
         trelloBoards.stream()
                 .filter(b -> b.getName().toUpperCase().contains("KODILLA"))

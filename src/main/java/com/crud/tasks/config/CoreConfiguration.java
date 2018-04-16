@@ -28,14 +28,21 @@ public class CoreConfiguration implements WebMvcConfigurer {
         return new RestTemplate();
     }
 
+//    @Bean
+//    public Docket api() {
+//        return new Docket(DocumentationType.SWAGGER_2)
+//                .select()
+//                .apis(RequestHandlerSelectors.basePackage("com.crud.tasks.controller"))
+//                .paths(PathSelectors.any())
+//                .build();
+//    }
     @Bean
     public Docket api() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.crud.tasks.controller"))
+                .apis(RequestHandlerSelectors.any())
                 .paths(PathSelectors.any())
                 .build();
-
     }
 
     @Override

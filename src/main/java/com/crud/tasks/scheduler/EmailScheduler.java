@@ -1,28 +1,44 @@
-//package com.crud.tasks.scheduler;
+package com.crud.tasks.scheduler;
 
 
-//import org.springframework.stereotype.Component;
-//
-//@Component
-//public class EmailScheduler {
+import com.crud.tasks.config.AdminConfig;
+import com.crud.tasks.domain.Mail;
+import com.crud.tasks.repository.TaskRepository;
+import com.crud.tasks.service.SimpleEmailService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.stereotype.Component;
 
-//    private static final String SUBJECT = "Tasks: Once a day email";
-//
-//    @Autowired
-//    private SimpleEmailService simpleEmailService;
-//
-//    @Autowired
-//    private TaskRepository taskRepository;
-//
-//    @Autowired
-//    private AdminConfig adminConfig;
-//
-//    @Scheduled(fixedDelayString = "10000")
-//    public void sendInformationEmail() {
-//        long size = taskRepository.count();
-//        simpleEmailService.send(new Mail(
-//                adminConfig.getAdminMail(),
-//                SUBJECT,
-//                "Currently in database you got: " + size + " tasks"));
-//    }
-//}
+@Component
+public class EmailScheduler {
+
+    @Autowired
+    private SimpleEmailService simpleEmailService;
+
+    @Autowired
+    private TaskRepository taskRepository;
+
+    @Autowired
+    private AdminConfig adminConfig;
+
+    private static final String SUBJECT = "Tasks: Once a day email";
+
+
+    @Scheduled(cron = "0 0 10 * * *")
+    public void sendInformationEmail() {
+        simpleEmailService.send(new Mail(
+                adminConfig.getAdminMail(),
+                SUBJECT,
+                getMessage(taskRepository.count()))
+        );
+    }
+    private String getMessage(long sizeOfDatabase) {
+        String message = "Currently in database you've got: ";
+        if (sizeOfDatabase == 1) {
+            message += sizeOfDatabase + " task";
+        } else {
+            message += sizeOfDatabase + " tasks";
+        }
+        return message;
+    }
+}

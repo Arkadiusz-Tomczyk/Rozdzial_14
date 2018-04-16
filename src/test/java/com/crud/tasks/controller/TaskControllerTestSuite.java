@@ -52,6 +52,7 @@ public class TaskControllerTestSuite {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(0)));
     }
+
     @Test
     public void shouldFetchTaskList() throws Exception {
         List<Task> tasks = new ArrayList<>();
@@ -71,20 +72,20 @@ public class TaskControllerTestSuite {
                 .andExpect(jsonPath("$[0].title", is("title")));
     }
 
-//    @Test
-//    public void shouldFetchTask() throws Exception {
-//        Task task = new Task(1L, "task", "content");
-//        TaskDto taskDto = new TaskDto(1L, "task", "content");
-//        when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
-//        when(dbService.getTask(1L)).thenReturn(Optional.of(task));
+//   @Test
+//public void shouldFetchTask() throws Exception {
+//    //Given
+//    Long id = 13L;
+//    TaskDto taskDto = new TaskDto(13L, "Test_title", "Test_content");
+//    Task task = new Task(13L, "Test_title", "Test_content");
 //
-//        //When & Then
-//        mockMvc.perform(get("/v1/task/getTask?taskId=1").contentType(MediaType.APPLICATION_JSON))
-//                .andExpect(status().isOk())
-//                .andExpect(jsonPath("$.id", is(1)))
-//                .andExpect(jsonPath("$.title", is("task")));
-//    }
-
+//    when(service.getTask(id)).thenReturn(ofNullable(task));
+//    when(taskMapper.mapToTaskDto(task)).thenReturn(taskDto);
+////When & Then
+//    mockMvc.perform(get("/tasks/{taskId}").contentType(MediaType.APPLICATION_JSON))
+//            .andExpect(status().isOk())
+//            .andExpect(jsonPath("$.id", is(13)));
+//}
     @Test
     public void shoudlDeleteTask() throws Exception {
         //Given
