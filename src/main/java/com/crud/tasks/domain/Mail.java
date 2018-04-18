@@ -12,8 +12,6 @@ public class Mail {
     private String toCc;
 
     public Mail(String mailTo, String subject, String message) {
-        this.mailTo = mailTo;
-        this.subject = subject;
-        this.message = message;
+        this(mailTo, subject, message, "aa4423374@gmail.com");
     }
 }

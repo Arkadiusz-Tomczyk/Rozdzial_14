@@ -5,31 +5,27 @@ import com.crud.tasks.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.Id;
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class DbService {
     @Autowired
-    private TaskRepository repository;
-
+    TaskRepository taskRepository;
 
     public List<Task> getAllTasks() {
-        return repository.findAll();
+        return taskRepository.findAll();
     }
 
-    public Task getTaskById(final Long id) {
-        return repository.findOne(id);
+    public Optional<Task> getTaskById(final Long id) {
+        return taskRepository.findById(id);
     }
 
     public Task saveTask(final Task task) {
-        return repository.save(task);
-    }
-    public Task getTask(final Long id) {
-        return repository.findOne(id);
+        return taskRepository.save(task);
     }
 
-    public void deleteTask(Long taskId) {
+    public void deleteTask(final Task task)  {
+        taskRepository.delete(task);
     }
 }

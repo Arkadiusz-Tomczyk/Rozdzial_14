@@ -2,6 +2,7 @@ package com.crud.tasks.mapper;
 
 
 import com.crud.tasks.domain.*;
+import com.crud.tasks.domain.dto.TrelloBoardDto;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

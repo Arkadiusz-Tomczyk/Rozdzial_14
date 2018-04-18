@@ -1,7 +1,7 @@
 package com.crud.tasks.trello.client;
 
 
-import com.crud.tasks.domain.TrelloBoardDto;
+import com.crud.tasks.domain.dto.TrelloBoardDto;
 import com.crud.tasks.trello.config.TrelloConfig;
 import org.junit.Assert;
 import org.junit.Before;

@@ -1,7 +1,7 @@
 package com.crud.tasks.mapper;
 
 import com.crud.tasks.domain.Task;
-import com.crud.tasks.domain.TaskDto;
+import com.crud.tasks.domain.dto.TaskDto;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -17,41 +17,43 @@ public class TaskMapperTestSuite {
     private TaskMapper taskMapper;
 
     @Test
-    public void mapToTaskTest() {
-        //Given
-        TaskDto taskDto = new TaskDto(1L, "task", "content");
-
-        //When
-        String title = taskMapper.mapToTask(taskDto).getTitle();
-
-        //Then
-        Assert.assertEquals("task", title);
+    public void testMapToTask() {
+        //given
+        TaskDto taskDto = new TaskDto(1L, "test", "top");
+        //when
+        Task mappedTask = taskMapper.mapToTask(taskDto);
+        //then
+        Assert.assertEquals(taskDto.getId(), mappedTask.getId());
+        Assert.assertEquals(taskDto.getTitle(), mappedTask.getTitle());
+        Assert.assertEquals(taskDto.getContent(), mappedTask.getContent());
     }
 
     @Test
-    public void mapToTaskDtoTest() {
-        //Given
-        Task task = new Task(1L, "task", "content");
-
-        //When
-        String title = taskMapper.mapToTaskDto(task).getTitle();
-
-        //Then
-        Assert.assertEquals("task", title);
+    public void testMapToTaskDto() {
+        //given
+        Task task = new Task(1L, "test", "top");
+        //when
+        TaskDto mappedTaskDto = taskMapper.mapToTaskDto(task);
+        //then
+        Assert.assertEquals(task.getId(), mappedTaskDto.getId());
+        Assert.assertEquals(task.getTitle(), mappedTaskDto.getTitle());
+        Assert.assertEquals(task.getContent(), mappedTaskDto.getContent());
     }
 
-
     @Test
-    public void mapToTaskDtoListTest() {
-        //Given
-        Task task = new Task(1L, "task", "content");
-        List<Task> tasks = new ArrayList<>();
-        tasks.add(task);
+    public void testMapToTaskDtoList() {
+        //given
+        Task task1 = new Task(1L, "test1", "top");
+        Task task2 = new Task(2L, "test2", "top");
+        List<Task> listOfTask = new ArrayList<>();
+        listOfTask.add(task1);
+        listOfTask.add(task2);
 
-        //When
-        String content = taskMapper.mapToTaskDtoList(tasks).get(0).getContent();
+        //when
+        List<TaskDto> mappedListOfTaskDto = taskMapper.mapToTaskDtoList(listOfTask);
+        //then
+        Assert.assertEquals(2, mappedListOfTaskDto.size());
+        Assert.assertEquals(listOfTask.get(0).getTitle(),mappedListOfTaskDto.get(0).getTitle());
 
-        //Then
-        Assert.assertEquals("content", content);
     }
 }
