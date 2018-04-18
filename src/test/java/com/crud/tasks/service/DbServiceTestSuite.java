@@ -52,13 +52,13 @@ public class DbServiceTestSuite {
         List<Task> taskList = new ArrayList<>();
         taskList.add(task);
 
-        when(taskRepository.findOne(1L)).thenReturn(task);
+        when(taskRepository.findById(1L)).thenReturn(Optional.of(task));
 
         //When
-        Optional<Task> result = Optional.ofNullable(dbService.getTask(1L));
+        Optional<Task> result = dbService.getTaskById(1L);
 
         //Then
-        verify(taskRepository, times(1)).findOne(1L);
+        verify(taskRepository, times(1)).findById(1L);
     }
 
     @Test
@@ -80,9 +80,9 @@ public class DbServiceTestSuite {
         Task task = new Task(1L, "Task", "content");
 
         //When
-        dbService.deleteTask(1L);
+        dbService.deleteTaskById(1L);
 
         //Then
-        verify(taskRepository, times(1)).delete(1L);
+        verify(taskRepository, times(1)).deleteById(1L);
     }
 }

@@ -9,15 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import com.crud.tasks.domain.dto.CreateTrelloCardDto;
-import com.crud.tasks.domain.dto.TrelloBoardDto;
-import com.crud.tasks.domain.dto.TrelloCardDto;
-import com.crud.tasks.trello.facade.TrelloFacade;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
 @RestController
 @RequestMapping("/v1/trello")
 @CrossOrigin("*")

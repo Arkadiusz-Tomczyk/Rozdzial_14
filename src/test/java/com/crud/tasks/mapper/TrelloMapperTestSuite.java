@@ -1,8 +1,12 @@
 package com.crud.tasks.mapper;
 
 
-import com.crud.tasks.domain.*;
+import com.crud.tasks.domain.TrelloBoard;
+import com.crud.tasks.domain.TrelloCard;
+import com.crud.tasks.domain.TrelloList;
 import com.crud.tasks.domain.dto.TrelloBoardDto;
+import com.crud.tasks.domain.dto.TrelloCardDto;
+import com.crud.tasks.domain.dto.TrelloListDto;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -29,7 +33,7 @@ public class TrelloMapperTestSuite {
         trelloBoardDtos.add(trelloBoardDto);
 
         //When
-        String getBoardName = trelloMapper.mapToBoards(trelloBoardDtos).get(0).getName();
+        String getBoardName = trelloMapper.mapToBoard(trelloBoardDtos).get(0).getName();
 
         //Then
         Assert.assertEquals(1, trelloBoardDtos.size());
@@ -47,7 +51,7 @@ public class TrelloMapperTestSuite {
         trelloBoards.add(trelloBoard);
 
         //When
-        String getBoardName = trelloMapper.mapToBoardsDto(trelloBoards).get(0).getName();
+        String getBoardName = trelloMapper.mapToBoardDto(trelloBoards).get(0).getName();
 
         //Then
         Assert.assertEquals(1, trelloBoards.size());
